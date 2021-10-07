@@ -6,12 +6,11 @@ public class Conta {
 
 	private TipoDeConta tipo;
 	private String numero;
-	private String agencia;
-	private Cliente titular;
+	private Agencia agencia;
+	private Cliente cliente;
 	private double saldo;
 
 	public Conta() {
-
 
 	}
 
@@ -24,23 +23,18 @@ public class Conta {
 	public TipoDeConta getTipo() {
 
 		return tipo;
-		
-	}
-	
-	public void setAgencia(String agencia) {
-		
-		this.agencia = agencia;
-	}
-	
-	public String getAgencia () {
-		
-		return agencia;
-		
-	}
-	
-	public void setTitular(String titular) {
 
-		this.titular = titular;
+	}
+
+	public void setAgencia(Agencia agencia) {
+
+		this.agencia = agencia;
+
+	}
+
+	public Agencia getAgencia() {
+
+		return agencia;
 
 	}
 
@@ -49,8 +43,17 @@ public class Conta {
 		this.numero = numero;
 
 	}
-	
-	
+
+	public void setCliente(Cliente cliente) {
+
+		this.cliente = cliente;
+
+	}
+
+	public Cliente getCliente() {
+
+		return cliente;
+	}
 
 	public void depositar(double valorDeposito) {
 
@@ -104,9 +107,9 @@ public class Conta {
 	public void exibirDetalhes() {
 		System.out.println();
 		System.out.println("----------- CONTA ----------");
-		System.out.printf("Titular: %s\n", titular);
+		System.out.printf("Titular: %s\n", cliente.getNome());
 		System.out.printf("Número: %s\n", numero);
-		System.out.printf("Agência: %s\n", agencia);
+		System.out.printf("Agência: %s\n", agencia.getNumero());
 		System.out.printf("Tipo: %s\n", tipo);
 		System.out.printf("Saldo: %s\n", saldo);
 	}
